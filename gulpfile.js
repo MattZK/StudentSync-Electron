@@ -44,7 +44,7 @@ gulp.task('TS', () => {
     }))
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'));
-  gulp.src('src/bin/app.ts')
+  gulp.src('src/bin/*.ts')
     .pipe(ts({
       noImplicitAny: true
     }))
