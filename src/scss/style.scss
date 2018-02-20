@@ -121,6 +121,24 @@ body {
     }
     aside {
       background: #EBF0F6;
+      div{
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        text-align: left;
+        padding-left: 15px;
+        height: 50px;
+        line-height: 50px;
+        i{
+          line-height: 50px ;
+        }
+      }
+      .activity{
+        height: calc(100vh - 50px);
+        display: grid;
+        border-bottom: 0.5px solid black;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 60px;
+      }
     }
   }
 }
