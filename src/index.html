@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="img/network.png">
-  <script src="js/main.js"></script>
+  <script src="js/main.ts"></script>
   <title>StudentSync</title>
 </head>
 <body>
@@ -33,6 +33,10 @@
     <main>
       <section>
         <header></header>
+        <div class="search">
+            <p>Look for documents by tag or name:</p>
+            <input type="text" placeholder="Type...">
+        </div>
         <ul>
           <li>
             <span><img src="img/network.svg" alt="Network"></span>
@@ -46,25 +50,24 @@
       <aside>
         <div>
           <p>Recent</p>
-          <button><i class="material-icons">keyboard_arrow_right</i></button>
+          <button onclick="ToggleRecent()"><i class="material-icons">keyboard_arrow_right</i></button>
         </div>
         <article class="activity">
           <div>
-            <h3>Document</h3>
+            <p>Document</p>
             <p>Name</p>
           </div>
           <div>
-            <h3>Document</h3>
+            <p>Document</p>
             <p>Name</p>
           </div>
           <div>
-            <h3>Document</h3>
+            <p>Document</p>
             <p>Name</p>
           </div>
         </article>
       </aside>
     </main>
   </div>
-<script src="js/main.js"></script>
 </body>
 </html>
