@@ -24,7 +24,7 @@ const clean = require('gulp-clean');
 gulp.task('serve', ['default'], () => {
   browserSync.init({ server: "./dist" });
   gulp.watch('src/*.html', () => {gulp.src('*.html').pipe(gulp.dest('dist')).on('change', browserSync.reload)});
-  gulp.watch('src/scss/*.scss', () => {gulp.src('scss/*.scss').pipe(sourcemaps.init()).pipe(sass()).pipe(sourcemaps.write('./maps')).pipe(gulp.dest('dist')).pipe(browserSync.stream())});
+  gulp.watch('src/scss/*.scss', () => {gulp.src('scss/*.scss').pipe(sourcemaps.init()).pipe(sass()).pipe(sourcemaps.write('./maps')).pipe(gulp.dest('dist/css')).pipe(browserSync.stream())});
   gulp.watch('src/img/*', () => {gulp.src('img/*').pipe(gulp.dest('dist/img'))});
   gulp.watch('src/js/*.js', () => {gulp.src('js/*.js').pipe(concat('main.js')).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/js')).on('change', browserSync.reload)});
   gulp.watch('src/bin/*.ts', () => {gulp.src('bin/*.ts').pipe(ts({noImplicitAny: true})).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/bin'))});
@@ -33,7 +33,7 @@ gulp.task('serve', ['default'], () => {
 
 gulp.task('default', () => {
   gulp.src('src/*.html').pipe(gulp.dest('dist'));
-  gulp.src('src/scss/*.scss').pipe(sourcemaps.init()).pipe(sass()).pipe(sourcemaps.write('./maps')).pipe(gulp.dest('dist'));
+  gulp.src('src/scss/*.scss').pipe(sourcemaps.init()).pipe(sass()).pipe(sourcemaps.write('./maps')).pipe(gulp.dest('dist/css'));
   gulp.src('src/img/*').pipe(gulp.dest('dist/img'));
   gulp.src('src/js/*.js').pipe(concat('main.js')).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/js'));
   gulp.src('src/bin/*.ts').pipe(ts({noImplicitAny: true})).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/bin'));
@@ -43,7 +43,7 @@ gulp.task('default', () => {
 gulp.task('build', () => {
   gulp.src('dist/*', {read: false}).pipe(clean());
   gulp.src('src/*.html').pipe(gulp.dest('dist'));
-  gulp.src('src/scss/*.scss').pipe(sass()).pipe(gulp.dest('dist'));
+  gulp.src('src/scss/*.scss').pipe(sass()).pipe(gulp.dest('dist/css'));
   gulp.src('src/img/*').pipe(imagemin()).pipe(gulp.dest('dist/img'));
   gulp.src('src/js/*.js').pipe(concat('main.js')).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/js'));
   gulp.src('src/bin/*.ts').pipe(ts({noImplicitAny: true})).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/bin'));
