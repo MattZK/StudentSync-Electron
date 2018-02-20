@@ -131,13 +131,30 @@ body {
         i{
           line-height: 50px ;
         }
+        button{
+          background:transparent;
+          border-color: transparent;
+          .activity{
+            display: block;
+          }
+        }
       }
       .activity{
+        overflow: scroll;
         height: calc(100vh - 50px);
         display: grid;
         border-bottom: 0.5px solid black;
         grid-template-columns: 1fr;
         grid-auto-rows: 60px;
+        div{
+          text-align: left;
+          display: grid;
+          grid-template-rows: 2fr 1fr;
+          grid-auto-columns: 1fr;
+          p{
+            margin-right: 10px;
+          }
+        }
       }
     }
   }
