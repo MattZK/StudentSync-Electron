@@ -1,4 +1,4 @@
-[![StudentSync Logo](http://mattwill.be/projects/StudentSync/studentsync-logo-github.svg)](https://mattwill.be/projects/StudentSync)
+[![StudentSync Logo](http://mattwill.be/projects/StudentSync/studentsync-logo-github-updated.svg)](https://mattwill.be/projects/StudentSync)
 
 The Multi-Platform Student Collaboration Tool built
 using JavaScript, HTML and CSS. It is based on [Node.js](https://nodejs.org/) and
