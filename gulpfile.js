@@ -1,4 +1,15 @@
-'use strict';
+// EXTERNAL DOCUMENT
+//
+// Name: Gulp Execution File
+// Author: Matthias Willemsen
+// Portfolio: https://mattwill.be
+// Licence: MIT
+// Version: 1.0#19FEB2018
+// -- -- -- -- -- -- -- -- -- -- -- --
+// Document: Gulp File [JS] - Node.JS
+// Intended use: StuSync-Electron
+//
+
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const imagemin = require('gulp-imagemin');
@@ -8,93 +19,33 @@ const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
 const babel = require('gulp-babel');
 const ts = require('gulp-typescript');
+const clean = require('gulp-clean');
 
-// Copy HTML files
-gulp.task('HTML', () => {
-  gulp.src('src/*.html')
-  .pipe(gulp.dest('dist'));
+gulp.task('serve', ['default'], () => {
+  browserSync.init({ server: "./dist" });
+  gulp.watch('src/*.html', () => {gulp.src('*.html').pipe(gulp.dest('dist')).on('change', browserSync.reload)});
+  gulp.watch('src/scss/*.scss', () => {gulp.src('scss/*.scss').pipe(sourcemaps.init()).pipe(sass()).pipe(sourcemaps.write('./maps')).pipe(gulp.dest('dist')).pipe(browserSync.stream())});
+  gulp.watch('src/img/*', () => {gulp.src('img/*').pipe(gulp.dest('dist/img'))});
+  gulp.watch('src/js/*.js', () => {gulp.src('js/*.js').pipe(concat('main.js')).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/js')).on('change', browserSync.reload)});
+  gulp.watch('src/bin/*.ts', () => {gulp.src('bin/*.ts').pipe(ts({noImplicitAny: true})).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/bin'))});
+  gulp.watch('src/ts/*.ts', () => {gulp.src('ts/*.ts').pipe(concat('main.ts')).pipe(ts({noImplicitAny: true})).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/js')).on('change', browserSync.reload)});
 });
 
-// Optimize images
-gulp.task('IMG', () => {
-  gulp.src('src/img/*')
-    .pipe(imagemin())
-    .pipe(gulp.dest('dist/img'));
+gulp.task('default', () => {
+  gulp.src('src/*.html').pipe(gulp.dest('dist'));
+  gulp.src('src/scss/*.scss').pipe(sourcemaps.init()).pipe(sass()).pipe(sourcemaps.write('./maps')).pipe(gulp.dest('dist'));
+  gulp.src('src/img/*').pipe(gulp.dest('dist/img'));
+  gulp.src('src/js/*.js').pipe(concat('main.js')).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/js'));
+  gulp.src('src/bin/*.ts').pipe(ts({noImplicitAny: true})).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/bin'));
+  gulp.src('src/ts/*.ts').pipe(concat('main.ts')).pipe(ts({noImplicitAny: true})).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/js'));
 });
 
-// Uglify & Concat JS files
-gulp.task('JS', () => {
-  gulp.src('src/js/*.js')
-    .pipe(concat('main.js'))
-    .pipe(babel({
-        presets: ['env']
-    }))
-    .pipe(uglify())
-    .pipe(gulp.dest('dist/js'));
+gulp.task('build', () => {
+  gulp.src('dist/*', {read: false}).pipe(clean());
+  gulp.src('src/*.html').pipe(gulp.dest('dist'));
+  gulp.src('src/scss/*.scss').pipe(sass()).pipe(gulp.dest('dist'));
+  gulp.src('src/img/*').pipe(imagemin()).pipe(gulp.dest('dist/img'));
+  gulp.src('src/js/*.js').pipe(concat('main.js')).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/js'));
+  gulp.src('src/bin/*.ts').pipe(ts({noImplicitAny: true})).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/bin'));
+  gulp.src('src/ts/*.ts').pipe(concat('main.ts')).pipe(ts({noImplicitAny: true})).pipe(babel({presets: ['env']})).pipe(gulp.dest('dist/js'));
 });
-
-gulp.task('TS', () => {
-  gulp.src('src/js/*.ts')
-    .pipe(concat('main.ts'))
-    .pipe(ts({
-      noImplicitAny: true
-    }))
-    .pipe(babel({
-      presets: ['env']
-    }))
-    .pipe(uglify())
-    .pipe(gulp.dest('dist/js'));
-  gulp.src('src/bin/app.ts')
-    .pipe(ts({
-      noImplicitAny: true
-    }))
-    .pipe(babel({
-      presets: ['env']
-    }))
-    .pipe(uglify())
-    .pipe(gulp.dest('dist/bin'));
-});
-
-// Compile SCSS Sourcemaps (Dev Only)
-gulp.task('SCSS:srcmaps', () => {
-  gulp.src('src/scss/*.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('dist/css'))
-    .pipe(browserSync.stream());
-});
-
-// Compile SCSS
-gulp.task('SCSS', () => {
-  gulp.src('src/scss/*.scss')
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(gulp.dest('dist/css'));
-});
-
-// Serve (Development)
-gulp.task('serve', ['HTML', 'IMG', /*'JS',*/ 'TS', 'SCSS:srcmaps'], function() {
-  browserSync.init({
-      server: "./dist"  
-  });
-
-  gulp.watch('src/*.html', ['HTML']).on('change', browserSync.reload);
-  gulp.watch('src/img/*', ['IMG']);
-  //gulp.watch('src/js/*.js', ['JS']).on('change', browserSync.reload);
-  gulp.watch('src/js/*.ts', ['TS']).on('change', browserSync.reload);
-  gulp.watch('src/bin/*.ts', ['TS']);
-  gulp.watch('src/scss/*.scss', ['SCSS:srcmaps']);
-});;
-
-// Default (Development)
-gulp.task('default', ['HTML', 'IMG', /*'JS',*/ 'TS', 'SCSS:srcmaps']);
-gulp.task('watch', () => {
-  gulp.watch('src/*.html', ['HTML']);
-  gulp.watch('src/img/*', ['IMG']);
-  //gulp.watch('src/js/*.js', ['JS']);
-  gulp.watch('src/js/*.ts', ['TS']);
-  gulp.watch('src/scss/*.scss', ['SCSS:srcmaps']);
-});
-
-// Build (Production)
-gulp.task('build', ['HTML', 'IMG', /*'JS',*/ 'TS', 'SCSS']);
