@@ -140,7 +140,7 @@ body {
         }
       }
       .activity{
-        overflow: scroll;
+        overflow-y: scroll;
         height: calc(100vh - 50px);
         display: grid;
         border-bottom: 0.5px solid black;
