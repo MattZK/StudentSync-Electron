@@ -60,10 +60,10 @@ body {
     display: grid;
     grid: minmax(100vh, auto) / auto 250px;
     #allDoc{
+      display: none;
 
     }
     #groupchat{
-      display: none;
     }
     #Otherchat{
       display: none;
@@ -100,19 +100,47 @@ body {
       div{
         display: grid;
         grid-template-columns: repeat(3,60px);
+        button{
+          height: 64px;
+          background: transparent;
+          border: transparent;
+          line-height: 64px;
+          i{
+            cursor: pointer;
+          }
+        }
       }
     }
-    .MsgArea{
+    .MsgArea {
       overflow-y: scroll;
       display: grid;
       grid-template-rows: 1fr;
       grid-auto-columns: 1fr;
       height: calc(100vh - 275px);
       li{
-        height: 99px;
         display: grid;
-        grid-template-columns: 1fr;
-        grid-auto-rows: 1fr;
+        grid-template-columns: 50px 1fr;
+        height: 105px;
+        img{
+          height:30px;
+          padding-top: 5px;
+        }
+        div{
+          height: 30px;
+          div{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+        }
+        .msg{
+          height: 70px;
+          overflow-y: scroll;
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
       }
     }
     .AnswerMsg{
@@ -121,16 +149,17 @@ body {
       display: grid;
       grid-template-columns: 1fr 4fr;
       i{
-        padding-left: 5px;
+        width: 40px;
+        padding-left: 8px;
         line-height: 50px;
         margin-left: 20px;
         border: 0.5px solid darkgrey;
       }
       input{
-        width: 112.5%;
+        width: 118%;
         padding-right: 20px;
         height: 1fr;
-        margin-left: -100px;
+        margin-left: -213px;
       }
     }
 
@@ -214,7 +243,7 @@ body {
           }
         }
       }
-      .activity{
+      #activity{
         overflow-y: scroll;
         height: calc(100vh - 50px);
         display: grid;

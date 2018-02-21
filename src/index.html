@@ -75,66 +75,21 @@
         <div class="ChatTop">
           <p>Group</p>
           <div>
-            <i class="material-icons">info_outline</i>
-            <i class="material-icons">settings</i>
-            <i class="material-icons">more_vert</i>
+            <button><i class="material-icons">info_outline</i></button>
+            <button><i class="material-icons">settings</i></button>
+            <button><i class="material-icons">more_vert</i></button>
           </div>
         </div>
         <ul class="MsgArea">
           <li>
-            <p>Jonas Van Hoof</p>
-            <p>18:20</p>
-            <p>Message</p>
-          </li>
-          <li>
-            <p>Jonas Van Hoof</p>
-            <p>18:20</p>
-            <p>Message</p>
-          </li>
-          <li>
-            <p>Jonas Van Hoof</p>
-            <p>18:20</p>
-            <p>Message</p>
-          </li>
-          <li>
-            <p>Jonas Van Hoof</p>
-            <p>18:20</p>
-            <p>Message</p>
-          </li>
-          <li>
-            <p>Jonas Van Hoof</p>
-            <p>18:20</p>
-            <p>Message</p>
-          </li>
-          <li>
-            <p>Jonas Van Hoof</p>
-            <p>18:20</p>
-            <p>Message</p>
-          </li>
-          <li>
-            <p>Jonas Van Hoof</p>
-            <p>18:20</p>
-            <p>Message</p>
-          </li>
-          <li>
-            <p>Jonas Van Hoof</p>
-            <p>18:20</p>
-            <p>Message</p>
-          </li>
-          <li>
-            <p>Jonas Van Hoof</p>
-            <p>18:20</p>
-            <p>Message</p>
-          </li>
-          <li>
-            <p>Jonas Van Hoof</p>
-            <p>18:20</p>
-            <p>Message</p>
-          </li>
-          <li>
-            <p>Jonas Van Hoof</p>
-            <p>18:20</p>
-            <p>Message</p>
+            <img src="img/network.svg" alt="Network">
+            <div>
+              <div>
+                <p><b>Jonas Van Hoof</b></p>
+                <p>18:20</p>
+              </div>
+              <p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet ex maiores omnis perferendis qui, ratione repellendus sint sit veritatis voluptate? Blanditiis fuga illo laudantium minima possimus quia sit, temporibus veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur dolores enim eos fugiat inventore, laboriosam, laudantium minima natus nostrum obcaecati quas reiciendis, rerum voluptas voluptatem? Ex nam nihil tempora?</p>
+            </div>
           </li>
         </ul>
         <div class="AnswerMsg">
@@ -217,9 +172,9 @@
       <aside>
         <div>
           <p>Recent</p>
-          <button onclick="ToggleRecent()"><i class="material-icons">keyboard_arrow_right</i></button>
+          <button onclick="ToggleRecent(this)"><i class="material-icons">keyboard_arrow_right</i></button>
         </div>
-        <article class="activity">
+        <article id="activity">
           <div>
             <p>Document</p>
             <p>Name</p>
