@@ -14,7 +14,7 @@
     "Tom Meyers",
     "Michiel Meurs"
   ],
-  "license": "MIT",
+  "license": "AGPL-3.0-or-later",
   "dependencies": {
     "electron": "^1.8.2"
   },
