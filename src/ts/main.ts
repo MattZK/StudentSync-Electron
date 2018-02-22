@@ -10,6 +10,6 @@ function Togglepage(element:any){
 }
 
 function changeName(user){
-  var naam = document.getElementById('name');
+  let naam = document.getElementById('name');
   naam.innerText = user;
 }

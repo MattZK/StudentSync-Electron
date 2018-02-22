@@ -60,10 +60,10 @@ body {
     display: grid;
     grid: minmax(100vh, auto) / auto 250px;
     #allDoc{
-
+      display: none;
     }
     #groupchat{
-      display: none;
+
     }
     #Otherchat{
       display: none;
@@ -150,8 +150,12 @@ body {
       padding: 0 20px;
       i{
         line-height: 50px;
-        border: 0.5px solid darkgrey;
         text-align: center;
+        border-right: none;
+      }
+      button{
+        background: transparent;
+        border: 0.5px solid darkgrey;
         border-right: none;
       }
       input{
