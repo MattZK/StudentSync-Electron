@@ -64,6 +64,7 @@ body {
 
     }
     #groupchat{
+
     }
     #Otherchat{
       display: none;
@@ -92,10 +93,10 @@ body {
       text-align: left;
       display: grid;
       grid-template-columns: 1fr 180px;
-      padding-top: 25px;
       border-bottom: 0.5px solid darkgrey;
       p{
         padding-left: 20px;
+        line-height: 64px;
       }
       div{
         display: grid;
@@ -107,6 +108,7 @@ body {
           line-height: 64px;
           i{
             cursor: pointer;
+            line-height: 64px;
           }
         }
       }
@@ -144,22 +146,17 @@ body {
       }
     }
     .AnswerMsg{
-      height: 50px;
-      padding-top: 17.5px;
       display: grid;
-      grid-template-columns: 1fr 4fr;
+      grid-template-columns: 50px auto;
+      padding: 0 20px;
       i{
-        width: 40px;
-        padding-left: 8px;
         line-height: 50px;
-        margin-left: 20px;
         border: 0.5px solid darkgrey;
+        text-align: center;
+        border-right: none;
       }
       input{
-        width: 118%;
         padding-right: 20px;
-        height: 1fr;
-        margin-left: -213px;
       }
     }
 
