@@ -19,18 +19,19 @@
       <div class="user">Matthias Willemsen</div>
       <div class="section">Files</div>
       <ul>
-        <li><i class="material-icons">insert_drive_file</i> All documents</li>
+        <li onclick="Togglepage('allDoc')"><i class="material-icons">insert_drive_file</i> All documents</li>
         <li><i class="material-icons">insert_drive_file</i> Your documents</li>
         <li><i class="material-icons">share</i> Files</li>
       </ul>
       <div class="section">Channels</div>
       <ul>
         <li><i class="material-icons">group</i> Group</li>
-        <li><i class="material-icons">person_outline</i> Ben</li>
-        <li><i class="material-icons">person_outline</i> Jonas</li>
-        <li><i class="material-icons">person_outline</i> Matthias</li>
-        <li><i class="material-icons">person_outline</i> Michiel</li>
-        <li><i class="material-icons">person_outline</i> Thomas</li>
+        <li onclick="Togglepage('Otherchat'); changeName('Ben Ten')"><i class="material-icons">person_outline</i> Ben Ten</li>
+        <li onclick="Togglepage('Otherchat'); changeName('Jonas Van Hoof')"><i class="material-icons">person_outline</i> Jonas Van Hoof</li>
+        <li onclick="Togglepage('Otherchat'); changeName('Matthias Willemsen')"><i class="material-icons">person_outline</i> Matthias Willemsen</li>
+        <li onclick="Togglepage('Otherchat'); changeName('Michiel Meurs')"><i class="material-icons">person_outline</i> Michiel Meurs</li>
+        <li onclick="Togglepage('Otherchat'); changeName('Thomas Claessens')"><i class="material-icons">person_outline</i> Thomas Claessens</li>
+        <li onclick="Togglepage('Otherchat'); changeName('Tom & Jerry')"><i class="material-icons">person_outline</i> Tom & Jerry</li>
       </ul>
       <div class="section">Labels</div>
       <ul>
@@ -40,6 +41,7 @@
       </ul>
     </nav>
     <main>
+      <section>
       <section id="allDoc">
         <header></header>
         <div class="search">
@@ -110,7 +112,7 @@
       <section id="Otherchat">
         <header></header>
         <div class="ChatTop">
-          <p>Name</p>
+          <p id="name">Name</p>
           <div>
             <i class="material-icons">info_outline</i>
             <i class="material-icons">settings</i>
@@ -147,7 +149,6 @@
       <aside>
         <div>
           <p>Recent</p>
-          <button onclick="ToggleRecent()"><i class="material-icons">keyboard_arrow_right</i></button>
         </div>
         <article id="activity">
           <div>

@@ -60,11 +60,10 @@ body {
     display: grid;
     grid: minmax(100vh, auto) / auto 250px;
     #allDoc{
-      display: none;
 
     }
     #groupchat{
-
+      display: none;
     }
     #Otherchat{
       display: none;
@@ -231,13 +230,6 @@ body {
         line-height: 50px;
         i{
           line-height: 50px ;
-        }
-        button{
-          background:transparent;
-          border-color: transparent;
-          .activity{
-            display: block;
-          }
         }
       }
       #activity{
