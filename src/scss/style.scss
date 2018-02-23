@@ -3,12 +3,14 @@
 body {
   font-family: Helvetica, sans-serif;
 }
-
 .grid {
   display: grid;
   grid: minmax(100vh, auto) / 300px auto;
   nav {
     background: #43494F;
+    ::-webkit-scrollbar{
+       background: #43494F ;
+     }
     header {
       $height: 80px;
       height: $height;
@@ -18,6 +20,10 @@ body {
       color: #377EE4;
       font-weight: bold;
       font-size: 1.5em;
+    }
+    #objects{
+      overflow: scroll;
+      height: calc(100vh - 144px);
     }
     .user {
       $height: 64px;
@@ -118,6 +124,9 @@ body {
       grid-template-rows: 1fr;
       grid-auto-columns: 1fr;
       height: calc(100vh - 275px);
+      ::-webkit-scrollbar{
+        background: white ;
+      }
       li{
         display: grid;
         grid-template-columns: 50px 1fr;
@@ -141,6 +150,9 @@ body {
           overflow-y: scroll;
           padding-top: 5px;
           padding-bottom: 5px;
+          ::-webkit-scrollbar{
+            background: #4B525B  ;
+          }
         }
       }
     }
@@ -225,6 +237,9 @@ body {
     }
     aside {
       background: #EBF0F6;
+      ::-webkit-scrollbar{
+        background: #EBF0F6;
+      }
       div{
         display: grid;
         grid-template-columns: 4fr 1fr;
