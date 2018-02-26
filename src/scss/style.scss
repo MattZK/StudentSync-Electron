@@ -69,28 +69,43 @@ body {
       display: none;
     }
     #groupchat{
-
+      
     }
-    #Otherchat{
+    #Otherchat {
       display: none;
     }
     .search{
       text-align: right;
       display: grid;
-      grid-template-columns: 300px 1fr;
+      grid-template-columns: 305px auto 345px;
       grid-auto-rows: 80px;
       p{
         line-height: 80px;
         margin-left:20px;
         color: white;
       }
+      &:hover{
+        border-style: none;
+      }
+      &:focus{
+        border-style: none;
+        outline: none;
+      }
+      &:active{
+        outline: none;
+      }
       input{
+        border: transparent  ;
+        border-radius:24px;
+        outline: none;
         width: 300px;
         height: 30px ;
         cursor: text;
         margin-right: 10px;
         margin-left: 20px;
         margin-top:24px;
+        padding-left: 20px
+
       }
     }
     .ChatTop{
@@ -120,11 +135,10 @@ body {
       }
     }
     .MsgArea {
+      margin-top: 4px;
+      margin-bottom: 4px;
       overflow-y: scroll;
       height: calc(100vh - 150px);
-      ::-webkit-scrollbar{
-        background: white ;
-      }
       li{
         display: grid;
         grid-template-columns: 50px 1fr;
@@ -149,7 +163,10 @@ body {
           padding-top: 5px;
           padding-bottom: 5px;
           ::-webkit-scrollbar{
-            background: #4B525B  ;
+            background: white  ;
+          }
+          .msg:hover{
+            scrollbar-track-color: rgba(50, 181, 204, 0.445);
           }
         }
       }
@@ -165,11 +182,24 @@ body {
       }
       button{
         background: transparent;
-        border: 0.5px solid darkgrey;
-        border-right: none;
+        border: none;
+        &:hover{
+          border-style: none;
+        }
+        &:focus{
+          border-style: none;
+          outline: none;
+        }
+        &:active{
+          outline: none;
+        }
       }
       input{
         padding-right: 20px;
+        padding-left: 20px;
+        border-radius:24px;
+        border: 1px solid darkgrey;
+        outline: none;
       }
     }
 
