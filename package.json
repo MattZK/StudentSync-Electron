@@ -30,7 +30,7 @@
     "gulp-sourcemaps": "",
     "gulp-typescript": "",
     "gulp-uglify": "",
-    "gulp-clean": "",
+    "gulp-plumber": "",
     "typescript": ""
   }
 }

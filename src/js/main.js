@@ -1,6 +1,6 @@
 //pagina toggle
-function Togglepage(element:any){
-  let item:any = document.getElementById(element);
+function Togglepage(element){
+  let item = document.getElementById(element);
   if (item.style.display === 'none'){
     item.style.display = 'block';
   }
@@ -10,7 +10,7 @@ function Togglepage(element:any){
 }
 
 function changeName(user){
-  let naam:any = document.getElementById('name');
+  let naam = document.getElementById('name');
   naam.innerText = user;
 }
 
