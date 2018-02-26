@@ -66,9 +66,10 @@ body {
     display: grid;
     grid: minmax(100vh, auto) / auto 250px;
     #allDoc{
+      display: none;
     }
     #groupchat{
-      display: none;
+
     }
     #Otherchat{
       display: none;
@@ -123,7 +124,7 @@ body {
       display: grid;
       grid-template-rows: 1fr;
       grid-auto-columns: 1fr;
-      height: calc(100vh - 275px);
+      height: calc(100vh - 150px);
       ::-webkit-scrollbar{
         background: white ;
       }
@@ -183,7 +184,6 @@ body {
         background: #3D8ADA;
       }
       ul {
-        margin: 40px 0 0 0;
         li {
           display: grid;
           grid: auto / 48px 48px auto 200px 48px;
@@ -255,7 +255,6 @@ body {
         overflow-y: scroll;
         height: calc(100vh - 50px);
         display: grid;
-        border-bottom: 0.5px solid black;
         grid-template-columns: 1fr;
         grid-auto-rows: 60px;
         div{
