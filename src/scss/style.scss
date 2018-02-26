@@ -121,9 +121,6 @@ body {
     }
     .MsgArea {
       overflow-y: scroll;
-      display: grid;
-      grid-template-rows: 1fr;
-      grid-auto-columns: 1fr;
       height: calc(100vh - 150px);
       ::-webkit-scrollbar{
         background: white ;
