@@ -7,11 +7,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="img/network.png">
-  <script src="js/main.js"></script>
   <title>StudentSync</title>
 </head>
 <body>
-  <div class="grid">
+  <div id="app" class="grid">
     <nav>
       <header>
         StudentSync
@@ -25,12 +24,7 @@
       </ul>
       <div class="section">Personel channels</div>
       <ul>
-        <li onclick="Togglepage('Otherchat'); changeName('Ben Vinck')"><i class="material-icons">person_outline</i> Ben Vinck</li>
-        <li onclick="Togglepage('Otherchat'); changeName('Jonas Van Hoof')"><i class="material-icons">person_outline</i> Jonas Van Hoof</li>
-        <li onclick="Togglepage('Otherchat'); changeName('Matthias Willemsen')"><i class="material-icons">person_outline</i> Matthias Willemsen</li>
-        <li onclick="Togglepage('Otherchat'); changeName('Michiel Meurs')"><i class="material-icons">person_outline</i> Michiel Meurs</li>
-        <li onclick="Togglepage('Otherchat'); changeName('Thomas Claessens')"><i class="material-icons">person_outline</i> Thomas Claessens</li>
-        <li onclick="Togglepage('Otherchat'); changeName('Tom Meyers')"><i class="material-icons">person_outline</i> Tom Meyers</li>
+        <li v-for="person in people" v-on:click="showPrivateChat(person.uid)"><i class="material-icons">person_outline</i> {{ person.name.first }} {{ person.name.last }}</li>
       </ul>
       <div class="section">Workspaces</div>
       <ul>
@@ -181,5 +175,7 @@
       </aside>
     </main>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
