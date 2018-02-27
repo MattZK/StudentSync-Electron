@@ -6,8 +6,8 @@ let mainWindow:BrowserWindow|null = null;
 
 function createWindow ():void {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600
+    width: 1200,
+    height: 750
   });
 
   mainWindow.loadURL(url.format({
@@ -18,7 +18,7 @@ function createWindow ():void {
 }
 
 app.on('ready', () => {
-  mainWindow = null;
+  createWindow();
 });
 
 app.on('window-all-closed', function () {
