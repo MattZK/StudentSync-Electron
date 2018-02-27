@@ -19,20 +19,16 @@
       <article id="objects">
       <div class="section">Files</div>
       <ul>
-        <li onclick="Togglepage('allDoc')"><i class="material-icons">insert_drive_file</i> All documents</li>
+        <li><i class="material-icons">insert_drive_file</i> All documents</li>
         <li><i class="material-icons">insert_drive_file</i> Your documents</li>
       </ul>
       <div class="section">Personel channels</div>
       <ul>
-        <li v-for="person in people" v-on:click="showPrivateChat(person.uid)"><i class="material-icons">person_outline</i> {{ person.name.first }} {{ person.name.last }}</li>
+        <li v-for="person in people" v-on:click="showPrivateChat(person)"><i class="material-icons">person_outline</i> {{ person.name.first }} {{ person.name.last }}</li>
       </ul>
       <div class="section">Workspaces</div>
       <ul>
-        <li onclick="Togglepage('groupchat'); changeName('StuSync Admins')"><i class="material-icons">group</i> Group</li>
-        <li onclick="Togglepage('groupchat'); changeName('StuSync Admins')"><i class="material-icons">group</i> Group</li>
-        <li onclick="Togglepage('groupchat'); changeName('StuSync Admins')"><i class="material-icons">group</i> Group</li>
-        <li onclick="Togglepage('groupchat'); changeName('StuSync Admins')"><i class="material-icons">group</i> Group</li>
-        <li onclick="Togglepage('groupchat'); changeName('StuSync Admins')"><i class="material-icons">group</i> Group</li>
+        <li v-for="workspace in workspaces" v-on:click="showWorkspace(workspace)"><i class="material-icons">group</i> {{ workspace.name }}</li>
       </ul>
       <div class="section">Labels</div>
       <ul>
@@ -75,9 +71,9 @@
           </li>
         </ul>
       </section>-->
-      <section class="groupchat">
+      <section v-if="page == 'workspace'" class="groupchat">
         <header>
-          <p>Group</p>
+          <p>{{ active.workspace.name }}</p>
           <div>
             <i class="material-icons">info_outline</i>
             <i class="material-icons">settings</i>
@@ -173,6 +169,7 @@
     </aside>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="js/db.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

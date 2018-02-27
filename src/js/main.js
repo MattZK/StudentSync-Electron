@@ -1,34 +1,22 @@
-let people = [
-  {
-    uid: 1,
-    name: {
-      first: 'Matthias',
-      last: 'Willemsen'
-    }
-  },{
-    uid: 2,
-    name: {
-      first: 'Jonas',
-      last: 'Van Hoof'
-    }
-  },{
-    uid: 3,
-    name: {
-      first: 'Michiel',
-      last: 'Meurs'
-    }
-  }
-];
-
 let app = new Vue({
   el: '#app',
   data: {
-    currentPage: 'home',
-    people: people
+    page: 'home',
+    people: people,
+    workspaces: workspaces,
+    active: {
+      person: null,
+      workspace: null
+    }
   },
   methods: {
-    showPrivateChat: (uid) => {
-      
+    showPrivateChat: (person) => {
+      app.active.person = person;
+      app.page = 'pmchat';
+    },
+    showWorkspace: (workspace) => {
+      app.active.workspace = workspace;
+      app.page = 'workspace';
     }
   }
 });
