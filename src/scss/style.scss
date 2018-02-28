@@ -4,6 +4,7 @@ body {
   font-family: Helvetica, sans-serif;
 }
 .login {
+  font-family: 'Francois One', sans-serif;
   background: url(https://studentsync.site/img/backgrounds/index.jpeg) ;
   header {
     width: 100%;
@@ -26,14 +27,19 @@ body {
     form {
       $margin: 10px;
       margin: 0 auto;
-      width: 350px;
+      width: 400px;
       height: calc(100vh - 80px);
       div {
+        width: 400px;
         margin-top: 250px;
         border: transparent;
         padding: 20px;
-        background: grey;
+        background: #575555;
         border-radius:10px;
+        align-content: center;
+        img{
+          margin: $margin;
+        }
         label {
           display: block;
           padding-top: $margin;
@@ -45,10 +51,14 @@ body {
           outline: none;
           border-radius: 24px;
           border: 0.5px solid darkgrey;
-          height: 25px;
+          height: 48px;
           padding-left: 20px;
+          background-color: #575555;
+          color: #a9a9a9;
+          margin-top: 20px;
         }
         div {
+          width: 200px;
           display: grid;
           grid-template-columns: 20px auto;
           margin-top: 8px;
@@ -60,16 +70,16 @@ body {
             height: 20px;
           }
           label {
-            margin-left: 10px;
+            margin-left: 20px;
             font-size: 12px;
             color: $color;
           }
         }
         button {
           margin-top: 15px;
-          background: rgb(67, 73, 79);
+          background: #575555;
           color: white;
-          border: transparent;
+          border: 0.5px solid lightgrey;
           border-radius: 5px;
           text-align: center;
           width: 300px;
