@@ -7,11 +7,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="img/network.png">
-  <script src="js/main.js"></script>
   <title>StudentSync</title>
 </head>
 <body>
-  <div class="grid">
+  <div id="app" class="grid">
     <nav>
       <header>
         StudentSync
@@ -20,25 +19,24 @@
       <article id="objects">
       <div class="section">Files</div>
       <ul>
-        <li onclick="Togglepage('allDoc')"><i class="material-icons">insert_drive_file</i> All documents</li>
+        <li><i class="material-icons">insert_drive_file</i> All documents</li>
         <li><i class="material-icons">insert_drive_file</i> Your documents</li>
       </ul>
       <div class="section">Personel channels</div>
       <ul>
-        <li onclick="Togglepage('Otherchat'); changeName('Ben Vinck')"><i class="material-icons">person_outline</i> Ben Vinck</li>
-        <li onclick="Togglepage('Otherchat'); changeName('Jonas Van Hoof')"><i class="material-icons">person_outline</i> Jonas Van Hoof</li>
-        <li onclick="Togglepage('Otherchat'); changeName('Matthias Willemsen')"><i class="material-icons">person_outline</i> Matthias Willemsen</li>
-        <li onclick="Togglepage('Otherchat'); changeName('Michiel Meurs')"><i class="material-icons">person_outline</i> Michiel Meurs</li>
-        <li onclick="Togglepage('Otherchat'); changeName('Thomas Claessens')"><i class="material-icons">person_outline</i> Thomas Claessens</li>
-        <li onclick="Togglepage('Otherchat'); changeName('Tom Meyers')"><i class="material-icons">person_outline</i> Tom Meyers</li>
+        <li v-for="person in people" v-on:click="showPrivateChat(person)"><i class="material-icons">person_outline</i> {{ person.name.first }} {{ person.name.last }}</li>
       </ul>
       <div class="section">Workspaces</div>
       <ul>
+<<<<<<< HEAD
         <li><i class="material-icons">group</i> Group</li>
         <li><i class="material-icons">group</i> Group</li>
         <li><i class="material-icons">group</i> Group</li>
         <li><i class="material-icons">group</i> Group</li>
         <li><i class="material-icons">group</i> Group</li>
+=======
+        <li v-for="workspace in workspaces" v-on:click="showWorkspace(workspace)"><i class="material-icons">group</i> {{ workspace.name }}</li>
+>>>>>>> 8b5cfd2e3b45d351e8b93a21a0214bb54df41036
       </ul>
       <div class="section">Labels</div>
       <ul>
@@ -49,12 +47,14 @@
       </article>
     </nav>
     <main>
-      <section id="allDoc">
-        <header></header>
-        <div class="search">
+      <!--<section id="allDoc">
+        <header>
+          <div class="search">
             <p>Look for documents by tag or name:</p>
+            <div></div>
             <input type="text" placeholder="Type...">
-        </div>
+          </div>
+        </header>
         <ul>
           <li>
             <span><img src="img/network.svg" alt="Network"></span>
@@ -78,54 +78,58 @@
             <span><i class="material-icons">close</i></span>
           </li>
         </ul>
-      </section>
-      <section id="groupchat">
-        <header></header>
-        <div class="ChatTop">
-          <p>Group</p>
-          <div>
-            <button><i class="material-icons">info_outline</i></button>
-            <button><i class="material-icons">settings</i></button>
-            <button><i class="material-icons">more_vert</i></button>
-          </div>
-        </div>
-        <ul class="MsgArea">
-          <li>
-            <img src="img/network.svg" alt="Network">
-            <div>
-              <div>
-                <p><b>Jonas Van Hoof</b></p>
-                <p>18:20</p>
-              </div>
-              <p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet ex maiores omnis perferendis qui, ratione repellendus sint sit veritatis voluptate? Blanditiis fuga illo laudantium minima possimus quia sit, temporibus veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur dolores enim eos fugiat inventore, laboriosam, laudantium minima natus nostrum obcaecati quas reiciendis, rerum voluptas voluptatem? Ex nam nihil tempora?</p>
-            </div>
-          </li>
-          <li>
-          <img src="img/network.svg" alt="Network">
-          <div>
-            <div>
-              <p><b>Matthias Willemsem</b></p>
-              <p>18:20</p>
-            </div>
-            <p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet ex maiores omnis perferendis qui, ratione repellendus sint sit veritatis voluptate? Blanditiis fuga illo laudantium minima possimus quia sit, temporibus veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur dolores enim eos fugiat inventore, laboriosam, laudantium minima natus nostrum obcaecati quas reiciendis, rerum voluptas voluptatem? Ex nam nihil tempora?</p>
-          </div>
-          </li>
-        </ul>
-        <div class="AnswerMsg">
-          <button><i class="material-icons">add</i></button>
-          <input type="text" placeholder="Type message ...">
-        </div>
-      </section>
-      <section id="Otherchat">
-        <header></header>
-        <div class="ChatTop">
-          <p id="name">Name</p>
+      </section>-->
+      <section v-if="page == 'workspace'" class="groupchat">
+        <header>
+          <p>{{ active.workspace.name }}</p>
           <div>
             <i class="material-icons">info_outline</i>
             <i class="material-icons">settings</i>
             <i class="material-icons">more_vert</i>
           </div>
+        </header>
+        <ul class="chat">
+          <li>
+            <img src="img/network.svg" alt="Network">
+            <div class="content">
+              <p class="person">Matthias Willemsen</p>
+              <span class="time">18:20</span>
+              <p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet ex maiores omnis perferendis qui, ratione repellendus sint sit veritatis voluptate? Blanditiis fuga illo laudantium minima possimus quia sit, temporibus veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur dolores enim eos fugiat inventore, laboriosam, laudantium minima natus nostrum obcaecati quas reiciendis, rerum voluptas voluptatem? Ex nam nihil tempora?</p>
+            </div>
+          </li>
+          <li>
+            <img src="img/network.svg" alt="Network">
+            <div class="content">
+              <p class="person">Matthias Willemsen</p>
+              <span class="time">18:22</span>
+              <p class="msg">Lorem ipsum dolor sit amet.</p>
+            </div>
+          </li>
+          <li>
+            <img src="img/network.svg" alt="Network">
+            <div class="content">
+              <p class="person">Matthias Willemsen</p>
+              <span class="time">18:28</span>
+              <p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet ex maiores omnis perferendis qui, ratione repellendus sint sit veritatis voluptate? Blanditiis fuga illo laudantium minima possimus quia sit, temporibus veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur dolores enim eos fugiat inventore, laboriosam, laudantium minima natus nostrum obcaecati quas reiciendis, rerum voluptas voluptatem? Ex nam nihil tempora?</p>
+            </div>
+          </li>
+        </ul>
+        <div class="control">
+          <i class="material-icons">add</i>
+          <input type="text" placeholder="Type message ...">
         </div>
+      </section>
+      <!--<section id="Otherchat">
+        <header>
+          <div class="ChatTop">
+            <p id="name">Name</p>
+            <div>
+              <i class="material-icons">info_outline</i>
+              <i class="material-icons">settings</i>
+              <i class="material-icons">more_vert</i>
+            </div>
+          </div>
+        </header>
         <ul class="MsgArea">
           <li>
             <img src="img/network.svg" alt="Network">
@@ -152,27 +156,28 @@
           <button><i class="material-icons">add</i></button>
           <input type="text" placeholder="Type message ...">
         </div>
-      </section>
-      <aside>
-        <div>
-          <p>Recent</p>
-        </div>
-        <article id="activity">
-          <div>
-            <p>Document</p>
-            <p>Name</p>
-          </div>
-          <div>
-            <p>Document</p>
-            <p>Name</p>
-          </div>
-          <div>
-            <p>Document</p>
-            <p>Name</p>
-          </div>
-        </article>
-      </aside>
+      </section>-->
     </main>
+    <aside>
+      <div class="top">Recent <i class="material-icons">arrow_drop_down</i></div>
+      <article class="activity">
+        <div>
+          <i class="material-icons">insert_drive_file</i>
+          Document
+        </div>
+        <div>
+          <i class="material-icons">share</i>
+          Document
+        </div>
+        <div>
+          <i class="material-icons">report</i>
+          Document
+        </div>
+      </article>
+    </aside>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="js/db.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

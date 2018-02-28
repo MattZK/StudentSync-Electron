@@ -14,7 +14,7 @@
     "Tom Meyers",
     "Michiel Meurs"
   ],
-  "license": "MIT",
+  "license": "AGPL-3.0-or-later",
   "dependencies": {
     "electron": "^1.8.2"
   },
@@ -31,6 +31,10 @@
     "gulp-sourcemaps": "",
     "gulp-typescript": "",
     "gulp-uglify": "",
+<<<<<<< HEAD
+=======
+    "gulp-plumber": "",
+>>>>>>> 8b5cfd2e3b45d351e8b93a21a0214bb54df41036
     "typescript": ""
   }
 }

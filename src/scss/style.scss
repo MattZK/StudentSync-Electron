@@ -3,14 +3,97 @@
 body {
   font-family: Helvetica, sans-serif;
 }
-.grid {
+.login {
+  background: url(https://studentsync.site/img/backgrounds/index.jpeg) ;
+  header {
+    width: 100%;
+    height: 80px;
+    font-weight: bold;
+    font-size: 1.5em;
+    color:#377EE4;
+    background: rgb(67, 73, 79);
+    line-height: 80px;
+    padding-left: 20px;
+    }
+  main{
+    width: 100%;
+    h2{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color:rgb(67, 73, 79);
+    }
+    form {
+      $margin: 10px;
+      margin: 0 auto;
+      width: 350px;
+      height: calc(100vh - 80px);
+      div {
+        margin-top: 250px;
+        border: 1px solid black;
+        padding: 20px;
+
+        label {
+          display: block;
+          padding-top: $margin;
+          margin-bottom: 5px;
+          color: rgb(67, 73, 79);
+        }
+        input {
+          width: 100%;
+          outline: none;
+          border-radius: 24px;
+          border: 0.5px solid darkgrey;
+          height: 25px;
+          padding-left: 20px;
+        }
+        div {
+          display: grid;
+          grid-template-columns: 20px auto;
+          margin-top: 8px;
+
+          input {
+            justify-content: center;
+            margin-top: 8px;
+            height: 20px;
+          }
+          label {
+            margin-left: 10px;
+            font-size: 12px;
+            color: rgb(67, 73, 79);
+          }
+        }
+        button {
+          margin-top: 15px;
+          background: rgb(67, 73, 79);
+          color: white;
+          border: transparent;
+          border-radius: 5px;
+          margin-left: 25px;
+          width: 300px;
+          height: 40px;
+          padding: 5px 5px 5px 5px;
+        }
+        a {
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+          margin-top: $margin;
+          font-size: 15px;
+          text-decoration: none;
+          color: #377EE4;
+        }
+      }
+    }
+  }
+}
+  .grid {
   display: grid;
-  grid: minmax(100vh, auto) / 300px auto;
+  grid: minmax(100vh, auto) / 300px auto 256px;
   nav {
     background: #43494F;
-    ::-webkit-scrollbar{
+    /*::-webkit-scrollbar{
        background: #43494F ;
-     }
+     }*/
     header {
       $height: 80px;
       height: $height;
@@ -35,14 +118,17 @@ body {
       background: #3C4145;
     }
     .section {
-      padding: 24px 0 0 36px;
+      padding: 16px 0 0 24px;
       color: #CCD1D8;
       text-transform: uppercase;
       font-size: .75em;
       font-weight: bolder;
+      &:first-child {
+        padding-top: 24px;
+      }
     }
     ul{
-      padding: 12px 0;
+      padding: 10px 0;
       li {
         $height: 40px;
         height: $height;
@@ -56,122 +142,122 @@ body {
         i {
           vertical-align: top;
           line-height: $height;
-          margin: 0 12px 0 32px;
+          margin: 0 12px 0 28px;
           color: #586069;
         }
       }
     }
   }
   main {
-    display: grid;
-    grid: minmax(100vh, auto) / auto 250px;
-    #allDoc{
-      display: none;
+    .groupchat {
+      display: block;
+      header {
+        display: grid;
+        grid: auto / repeat(2, 1fr);
+        height: 80px;
+        padding: 0 24px;
+        color: white;
+        div {
+          text-align: right;
+          i {
+            height: 80px;
+            width: 40px;
+            line-height: 80px;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+          }
+        }
+      }
+      ul.chat {
+        overflow-y: scroll;
+        height: calc(100vh - 90px);
+        padding: 6px 0 50px 0;
+        li {
+          display: grid;
+          grid-template-columns: 64px auto;
+          height: auto !important;
+          margin: 16px 64px 16px 16px;
+          img {
+            width: 60%;
+            margin: 8px auto;
+          }
+          .content {
+            .person {
+              font-weight: bold;
+              display: inline-block;
+            }
+            .time {
+              display: inline-block;
+              font-size: 12px;
+              font-weight: lighter;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+      .control {
+        display: grid;
+        position: absolute;
+        bottom: 0;
+        grid-template-columns: 50px auto;
+        width: 790px;
+        height: 70px;
+        padding: 10px 16px;
+        i{
+          line-height: 48px;
+          text-align: center;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+          border: 1px solid darkgrey;
+          border-right: none;
+          color: rgba(0, 0, 0, .75);
+          cursor: pointer;
+        }
+        input{
+          padding: 0 16px;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          border: 1px solid darkgrey;
+          outline: none;
+          height: 50px;
+        }
+      }
     }
-    #groupchat{
 
-    }
-    #Otherchat{
-      display: none;
-    }
+    ///// Old
     .search{
       text-align: right;
-      padding-top: 25px;
       display: grid;
-      grid-template-columns: 3fr 1fr;
-      height:64px;
+      grid-template-columns: 305px auto 345px;
+      grid-auto-rows: 80px;
       p{
-        line-height: 25px;
-        padding-left: 20px;
-        padding-right: 10px;
+        line-height: 80px;
+        margin-left:20px;
+        color: white;
+      }
+      &:hover{
+        border-style: none;
+      }
+      &:focus{
+        border-style: none;
+        outline: none;
+      }
+      &:active{
+        outline: none;
       }
       input{
-        line-height: 25px;
+        border: transparent  ;
+        border-radius:24px;
+        outline: none;
         width: 300px;
-        float: left;
         height: 30px ;
         cursor: text;
-      }
-    }
-    .ChatTop{
-      height: 64px;
-      text-align: left;
-      display: grid;
-      grid-template-columns: 1fr 180px;
-      border-bottom: 0.5px solid darkgrey;
-      p{
-        padding-left: 20px;
-        line-height: 64px;
-      }
-      div{
-        display: grid;
-        grid-template-columns: repeat(3,60px);
-        button{
-          height: 64px;
-          background: transparent;
-          border: transparent;
-          line-height: 64px;
-          i{
-            cursor: pointer;
-            line-height: 64px;
-          }
-        }
-      }
-    }
-    .MsgArea {
-      overflow-y: scroll;
-      display: grid;
-      grid-template-rows: 1fr;
-      grid-auto-columns: 1fr;
-      height: calc(100vh - 275px);
-      ::-webkit-scrollbar{
-        background: white ;
-      }
-      li{
-        display: grid;
-        grid-template-columns: 50px 1fr;
-        height: 105px;
-        img{
-          height:30px;
-          padding-top: 5px;
-        }
-        div{
-          height: 30px;
-          div{
-            padding-top: 10px;
-            padding-bottom: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-          }
-        }
-        .msg{
-          height: 70px;
-          overflow-y: scroll;
-          padding-top: 5px;
-          padding-bottom: 5px;
-          ::-webkit-scrollbar{
-            background: #4B525B  ;
-          }
-        }
-      }
-    }
-    .AnswerMsg{
-      display: grid;
-      grid-template-columns: 50px auto;
-      padding: 0 20px;
-      i{
-        line-height: 50px;
-        text-align: center;
-        border-right: none;
-      }
-      button{
-        background: transparent;
-        border: 0.5px solid darkgrey;
-        border-right: none;
-      }
-      input{
-        padding-right: 20px;
+        margin-right: 10px;
+        margin-left: 20px;
+        margin-top:24px;
+        padding-left: 20px
+
       }
     }
 
@@ -182,8 +268,7 @@ body {
         line-height: $height;
         background: #3D8ADA;
       }
-      ul {
-        margin: 40px 0 0 0;
+/*      ul {
         li {
           display: grid;
           grid: auto / 48px 48px auto 200px 48px;
@@ -233,44 +318,38 @@ body {
             }
           }
         }
-      }
+      }*/
     }
-    aside {
-      background: #EBF0F6;
-      ::-webkit-scrollbar{
-        background: #EBF0F6;
-      }
-      div{
-        display: grid;
-        grid-template-columns: 4fr 1fr;
-        text-align: left;
-        padding-left: 15px;
-        height: 50px;
-        line-height: 50px;
-        i{
-          line-height: 50px ;
-        }
-      }
-      #activity{
-        overflow-y: scroll;
-        height: calc(100vh - 50px);
-        display: grid;
-        border-bottom: 0.5px solid black;
-        grid-template-columns: 1fr;
-        grid-auto-rows: 60px;
-        div{
-          text-align: left;
-          display: grid;
-          grid-template-rows: 2fr 1fr;
-          grid-auto-columns: 1fr;
-          &:hover{
-            background: white;
-            cursor: pointer;
-          }
-          p{
-            margin-right: 10px;
-          }
-        }
+  }
+}
+aside {
+  background: #EBF0F6;
+  /*::-webkit-scrollbar{
+    background: #EBF0F6;
+  }*/
+  .top {
+    padding: 0 15px;
+    height: 50px;
+    line-height: 50px;
+    color: darkgray;
+    cursor: pointer;
+    i {
+      vertical-align: top;
+      line-height: 50px !important;
+      float: right;
+    }
+  }
+  .activity{
+    overflow-y: scroll;
+    height: calc(100vh - 50px);
+    padding: 0 16px;
+    div{
+      height: 32px;
+      line-height: 32px;
+      color: darkgray;
+      i {
+        vertical-align: top;
+        line-height: 32px;
       }
     }
   }
