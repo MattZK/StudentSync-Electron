@@ -24,13 +24,13 @@
     "browser-sync": "",
     "gulp": "",
     "gulp-babel": "",
+    "gulp-clean": "",
     "gulp-concat": "",
     "gulp-imagemin": "",
     "gulp-sass": "",
     "gulp-sourcemaps": "",
     "gulp-typescript": "",
     "gulp-uglify": "",
-    "gulp-clean": "",
     "typescript": ""
   }
 }
