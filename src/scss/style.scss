@@ -16,6 +16,7 @@ body {
     padding-left: 20px;
     }
   main{
+    $color:white;
     width: 100%;
     h2{
       margin-top: 10px;
@@ -29,14 +30,15 @@ body {
       height: calc(100vh - 80px);
       div {
         margin-top: 250px;
-        border: 1px solid black;
+        border: transparent;
         padding: 20px;
-
+        background: grey;
+        border-radius:10px;
         label {
           display: block;
           padding-top: $margin;
           margin-bottom: 5px;
-          color: rgb(67, 73, 79);
+          color: $color;
         }
         input {
           width: 100%;
@@ -50,6 +52,7 @@ body {
           display: grid;
           grid-template-columns: 20px auto;
           margin-top: 8px;
+          border: transparent;
 
           input {
             justify-content: center;
@@ -59,7 +62,7 @@ body {
           label {
             margin-left: 10px;
             font-size: 12px;
-            color: rgb(67, 73, 79);
+            color: $color;
           }
         }
         button {
@@ -68,7 +71,7 @@ body {
           color: white;
           border: transparent;
           border-radius: 5px;
-          margin-left: 25px;
+          text-align: center;
           width: 300px;
           height: 40px;
           padding: 5px 5px 5px 5px;
