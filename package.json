@@ -16,21 +16,26 @@
   ],
   "license": "AGPL-3.0-or-later",
   "dependencies": {
-    "electron": "^1.8.2"
+    "babel-core": "^6.26.3",
+    "browser-sync": "^2.24.1",
+    "electron": "^1.8.6",
+    "gulp-sass": "^4.0.1",
+    "gulp-typescript": "^4.0.2",
+    "typescript": "^2.8.3"
   },
   "devDependencies": {
     "babel-core": "",
     "babel-preset-env": "",
     "browser-sync": "",
-    "gulp": "",
+    "gulp": "^3.9.1",
     "gulp-babel": "",
     "gulp-concat": "",
     "gulp-imagemin": "",
+    "gulp-plumber": "",
     "gulp-sass": "",
     "gulp-sourcemaps": "",
     "gulp-typescript": "",
     "gulp-uglify": "",
-    "gulp-plumber": "",
     "typescript": ""
   }
 }
