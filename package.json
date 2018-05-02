@@ -29,6 +29,7 @@
     "browser-sync": "",
     "gulp": "^3.9.1",
     "gulp-babel": "",
+    "gulp-clean": "",
     "gulp-concat": "",
     "gulp-imagemin": "",
     "gulp-plumber": "",
