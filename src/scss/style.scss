@@ -5,5 +5,8 @@ body {
 }
 
 .grid {
-  
+  display: grid;
+  grid-template: minmax(100vh, auto) / 64px auto;
+  aside {}
+  main {}
 }
