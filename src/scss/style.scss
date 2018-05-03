@@ -6,7 +6,32 @@ body {
 
 .grid {
   display: grid;
-  grid-template: minmax(100vh, auto) / 64px auto;
-  aside {}
-  main {}
+  grid-template: minmax(100vh, auto) / 80px auto;
+  aside {
+    background: rgba(0, 0, 0, .8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+    nav > ul {
+      padding-top: 16vh;
+      li {
+        padding: 12px 0;
+        text-align: center;
+        cursor: pointer;
+        color: white;
+        transition: color .1s ease-in-out;
+        &:hover {
+          color: rgba(255, 255, 255, .9);
+        }
+        img {
+          max-width: 48px;
+          padding: 12px 0;
+        }
+        i {
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+  main {
+    padding: 24px;
+  }
 }
